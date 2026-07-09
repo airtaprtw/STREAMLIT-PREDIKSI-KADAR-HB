@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Data & model hasil retraining -- JANGAN pernah commit data pasien asli
+# ke repo ini. Model/data akan otomatis dibuat ulang saat app dipakai
+# (walau bersifat sementara di Streamlit Cloud / ephemeral storage).
+app/data/*.xlsx
+data/*.xlsx
+models/*.pkl
+models/*.json
+models/*.txt
