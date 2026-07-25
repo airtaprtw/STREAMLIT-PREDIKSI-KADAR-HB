@@ -506,11 +506,41 @@ elif page == "Retraining System":
                     n_duplikat  = n_sebelum - len(df_gabungan)
                     n_baris_master_baru = len(df_gabungan)
 
+                    # SORTING ULANG BERDASARKAN id_pasien
+                    # Data baru bisa saja berisi id_pasien yang sudah ada di
+                    # master lama, sehingga posisi barisnya bisa tercampur
+                    # (tidak berurutan per pasien) setelah digabung. Di sini
+                    # data disortir ulang berdasarkan id_pasien, dan di dalam
+                    # tiap id_pasien diurutkan lagi berdasarkan tgl_pemeriksaan
+                    # (jika kolomnya ada) supaya urutan kronologis per pasien
+                    # tetap benar -- ini penting karena train.py membangun
+                    # fitur lag (hb_lag, hb_lag2) berbasis urutan waktu per
+                    # pasien.
+                    if 'id_pasien' in df_gabungan.columns:
+                        if 'tgl_pemeriksaan' in df_gabungan.columns:
+                            _tgl_sort_key = pd.to_datetime(
+                                df_gabungan['tgl_pemeriksaan'], errors='coerce'
+                            )
+                            df_gabungan = (
+                                df_gabungan
+                                .assign(_tgl_sort=_tgl_sort_key)
+                                .sort_values(by=['id_pasien', '_tgl_sort'], kind='stable')
+                                .drop(columns=['_tgl_sort'])
+                                .reset_index(drop=True)
+                            )
+                        else:
+                            df_gabungan = (
+                                df_gabungan
+                                .sort_values(by=['id_pasien'], kind='stable')
+                                .reset_index(drop=True)
+                            )
+
                     # Info transparansi: agar terlihat jelas apakah data bertambah
                     st.caption(
                         f"🔍 Rincian: Master lama **{n_baris_master_lama:,} baris** "
                         f"+ File diunggah **{n_baris_upload:,} baris** "
-                        f"→ setelah digabung & dedup **{n_baris_master_baru:,} baris** "
+                        f"→ setelah digabung, dedup, & disortir ulang per id_pasien "
+                        f"**{n_baris_master_baru:,} baris** "
                         f"({n_duplikat} baris duplikat dihapus)."
                     )
 
