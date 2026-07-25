@@ -500,9 +500,28 @@ elif page == "Retraining System":
                     else:
                         df_gabungan = df_baru.copy()
 
-                    # Deduplikasi — hapus baris yang identik persis
+                    # Deduplikasi — dicek berdasarkan pasangan
+                    # (id_pasien, tgl_pemeriksaan): baris-baris dengan
+                    # id_pasien & tgl_pemeriksaan yang sama dianggap
+                    # sebagai data yang sama (misal hasil lab yang
+                    # dikoreksi/direvisi), sehingga tetap didrop salah
+                    # satunya walaupun ada kolom lain yang isinya
+                    # berbeda. Baris yang dipertahankan adalah baris
+                    # PALING TERAKHIR (keep='last') -- karena data baru
+                    # yang diunggah digabung SETELAH master lama
+                    # (pd.concat([master_df, df_baru])), maka versi
+                    # data yang lebih baru/terbaru yang akan disimpan.
                     n_sebelum = len(df_gabungan)
-                    df_gabungan = df_gabungan.drop_duplicates().reset_index(drop=True)
+                    if {'id_pasien', 'tgl_pemeriksaan'}.issubset(df_gabungan.columns):
+                        df_gabungan = df_gabungan.drop_duplicates(
+                            subset=['id_pasien', 'tgl_pemeriksaan'], keep='last'
+                        )
+                    else:
+                        # Fallback: jika kolom id_pasien/tgl_pemeriksaan tidak
+                        # ditemukan, gunakan pengecekan seluruh kolom seperti semula
+                        df_gabungan = df_gabungan.drop_duplicates()
+
+                    df_gabungan = df_gabungan.reset_index(drop=True)
                     n_duplikat  = n_sebelum - len(df_gabungan)
                     n_baris_master_baru = len(df_gabungan)
 
