@@ -25,15 +25,25 @@ Penurunan kadar hemoglobin merupakan masalah umum pada pasien *End-Stage Renal D
 
 ---
 
-## Struktur Repositori
+## 📂 Struktur Repositori
 
 ```text
 .
+├── app/                        
+│   └── main.py                 # Berkas utama aplikasi Streamlit
+├── data/                       # Penyimpanan dataset 
+│   ├── processed/              
+│   └── raw/                    
 ├── models/                     # Penyimpanan versi model (.pkl) & riwayat retraining
-│   ├── model_history.json      # Metadata seluruh versi model
-│   └── active_model.txt        # Penunjuk versi model yang sedang aktif
-├── notebooks/                  # Eksperimen, analisis EDA, & perbandingan algoritma
-│   └── utils.py                # Pipeline pembersihan data & fungsi retraining
-├── app.py                      # Berkas utama aplikasi Streamlit
-├── requirements.txt            # Daftar pustaka/dependensi Python
-└── README.md                   # Dokumentasi proyek
+│   ├── active_model.txt        
+│   ├── lgbm_best_model.pkl     
+│   ├── lgbm_model_*.pkl        
+│   └── model_history.json      
+├── notebooks/                  
+│   ├── 01_EDA.ipynb            
+│   ├── 02_GridSearchModelling.ipynb # Eksperimen pemodelan GridSearch
+│   ├── 02_Optuna.ipynb         # Tuning hiperparameter Optuna
+│   ├── train.py                
+│   └── utils.py                # Automated pipeline preprocessing & helper functions
+├── .gitignore                  
+└── requirements.txt            # Dependensi Python
