@@ -31,7 +31,7 @@ Penurunan kadar hemoglobin merupakan masalah umum pada pasien *End-Stage Renal D
 .
 ├── app/                        
 │   └── main.py                 # Berkas utama aplikasi Streamlit
-├── data/                       # Penyimpanan dataset 
+├── data/                       
 │   ├── processed/              
 │   └── raw/                    
 ├── models/                     # Penyimpanan versi model (.pkl) & riwayat retraining
@@ -46,4 +46,16 @@ Penurunan kadar hemoglobin merupakan masalah umum pada pasien *End-Stage Renal D
 │   ├── train.py                
 │   └── utils.py                # Automated pipeline preprocessing & helper functions
 ├── .gitignore                  
-└── requirements.txt            # Dependensi Python
+└── requirements.txt            
+
+.
+
+## 🌐 Tautan Akses
+> Aplikasi Web Live: app-prediksi-kadar-hb.streamlit.app
+> Dokumentasi Kode: GitHub Repository
+
+## ✉️ Kontak & Pengembang
+> Pengembang: Airta Pertiwi
+> Program Studi: Teknik Informatika (S1)
+> Universitas: Universitas Lampung (Unila)
+> linkedin: www.linkedin.com/in/airtaprtw
