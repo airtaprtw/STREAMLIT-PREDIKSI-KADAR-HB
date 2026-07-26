@@ -48,7 +48,6 @@ Penurunan kadar hemoglobin merupakan masalah umum pada pasien *End-Stage Renal D
 ├── .gitignore                  
 └── requirements.txt            
 
-.
 
 ## 🌐 Tautan Akses
 
@@ -63,3 +62,4 @@ Penurunan kadar hemoglobin merupakan masalah umum pada pasien *End-Stage Renal D
 *  **Program Studi:** Teknik Informatika (S1)
 *  **Universitas:** Universitas Lampung
 *  **LinkedIn:** [Airta Pertiwi](https://www.linkedin.com/in/airtaprtw)
+.
