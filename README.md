@@ -48,17 +48,17 @@ Penurunan kadar hemoglobin merupakan masalah umum pada pasien *End-Stage Renal D
 ├── .gitignore                  
 └── requirements.txt            
 
-
+```
 ## 🌐 Tautan Akses
 
-* 🚀 **Aplikasi Web Live:** [app-prediksi-kadar-hb.streamlit.app](https://app-prediksi-kadar-hb.streamlit.app)
-* 💻 **Dokumentasi Kode:** [GitHub Repository](https://github.com/airtaprtw/STREAMLIT-PREDIKSI-KADAR-HB)
+*  **Aplikasi Web Live:** [app-prediksi-kadar-hb.streamlit.app](https://app-prediksi-kadar-hb.streamlit.app)
+*  **Dokumentasi Kode:** [GitHub Repository](https://github.com/airtaprtw/STREAMLIT-PREDIKSI-KADAR-HB)
 
 ---
 
 ## ✉️ Kontak & Pengembang
 
-* 👩‍💻 **Pengembang:** Airta Pertiwi
-* 🎓 **Program Studi:** Teknik Informatika (S1)
-* 🏫 **Universitas:** Universitas Lampung
-* 🔗 **LinkedIn:** [Airta Pertiwi](https://www.linkedin.com/in/airtaprtw)
+*  **Pengembang:** Airta Pertiwi
+*  **Program Studi:** Teknik Informatika (S1)
+*  **Universitas:** Universitas Lampung
+*  **LinkedIn:** [Airta Pertiwi](https://www.linkedin.com/in/airtaprtw)
